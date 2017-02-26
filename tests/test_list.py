@@ -24,6 +24,10 @@ class LinkedListTestCase(unittest.TestCase):
             LinkedList([])[0]
 
     def test_creation_and_equal(self):
+        l0 = LinkedList()
+        self.assertTrue(l0.start is None)
+        self.assertTrue(l0.end is None)
+
         l1 = LinkedList([1, 2, 3])
 
         self.assertTrue(l1.start is not None)
@@ -109,6 +113,8 @@ class LinkedListTestCase(unittest.TestCase):
         elem = l1.pop(0)
         self.assertEqual(elem, 9)
         self.assertEqual(l1.count(), 0)
+        self.assertTrue(l1.start is None)
+        self.assertTrue(l1.end is None)
         self.assertEqual(l1, LinkedList([]))
 
     def test_pop_raises_an_exception_with_empty_list(self):
